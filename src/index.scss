@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.gradient-bg-home{
+    height: 100vh;
+    background-color: rgb(56, 18, 78);
+    background-image: 
+        /* radial-gradient(at 0% 0%, rgb(196, 99, 99), transparent 50%), */
+        radial-gradient(at 40% 40%, rgb(181, 62, 62), transparent 80%),
+        radial-gradient(at 50% 50%, rgb(46, 46, 135), transparent 70%);
+}
+
+.banner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .wallet_btn{
+    margin: 3em;
+    padding: 1em;
+    font-weight: 600;
+    font-size: 1em;
+    background-color: beige;
+    border: none;
+    border-radius: 1em;
+    transition: 0.1s ease;
+    
+    &:hover{
+      transform: scaleX(20px);
+      cursor: pointer;
+      background-color: rgb(253, 253, 79);;
+    }
+  }
+}
+
+
+.navbar_list{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  .navbar_item{
+    font-size: 2em;
+    margin: 0 1em 1em 1em;
+    list-style: none;
+    cursor: pointer;
+    transition: 0.5s ease;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    &:hover{
+      color: white;
+    }
+  }
+}
+
