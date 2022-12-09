@@ -5,16 +5,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .gradient-bg-home{
@@ -31,9 +24,9 @@ code {
   justify-content: space-between;
   align-items: center;
 
-  .wallet_btn{
-    margin: 3em;
-    padding: 1em;
+  .login_btn{
+    margin: 0 2em 2em 2em;
+    padding: 0.5em 1.5em;
     font-weight: 600;
     font-size: 1em;
     background-color: beige;
@@ -69,3 +62,94 @@ code {
   }
 }
 
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  // height: 0vh;
+
+  .home-aside{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 3em 0 5em 0;
+  }
+
+  .home-left-container{
+    margin-left: 4em;
+    h1{
+      font-size: 60px;
+    }
+
+    p{
+      margin: 1em 0;
+      font-size: 30px;
+    }
+
+    .wallet_btn{
+      width: 50%;
+      margin: 1em;
+      padding: 0.5em 1.5em;
+      font-weight: 600;
+      font-size: 25px;
+      background-color: beige;
+      border: none;
+      border-radius: 1em;
+      transition: 0.1s ease;
+      
+      &:hover{
+        transform: scaleX(20px);
+        cursor: pointer;
+        background-color: rgb(253, 253, 79);;
+      }
+    
+    }
+  }
+
+  .home-right-container{
+
+    form{
+      padding: 1em;
+      border: 1px solid black;
+      border-radius: 1em;
+      background-color: rgba(35, 5, 73, 0.722);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 70%;
+
+      input{
+        &:focus{
+          outline: none;
+        }
+        border-radius: 0.5em;
+        width: 80%;
+        margin: 1em;
+        padding: 1em;
+      }
+
+      .btn_transaction{
+        width: 50%;
+        margin: 1em;
+        padding: 0.5em 1.5em;
+        font-weight: 600;
+        font-size: 25px;
+        background-color: beige;
+        border: none;
+        border-radius: 1em;
+        transition: 0.1s ease;
+        
+        &:hover{
+          transform: scaleX(20px);
+          cursor: pointer;
+          background-color: rgb(253, 253, 79);;
+        }
+      }
+    
+    }
+  }
+
+}

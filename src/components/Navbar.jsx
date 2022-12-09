@@ -19,17 +19,19 @@ const Navbar = () => {
         <nav className='navbar'>
           <div className="banner">
             <img  src={logo} alt="logo" className='w-32 cursor-pointer'/>
-            <button className='wallet_btn'>
-                Connect Wallet
+
+            <ul className='navbar_list'>
+            {/* <FontAwesomeIcon size='x1' icon={faEnvelope} /> */}
+                <NavbarItem title={"Market"}/>
+                <NavbarItem title={"Exchange"}/>
+                <NavbarItem title={"Tutorials"}/>
+                <NavbarItem title={"Wallets"}/>
+            </ul>
+            <button className='login_btn'>
+                Login
             </button>
           </div>
-          <ul className='navbar_list'>
-          {/* <FontAwesomeIcon size='x1' icon={faEnvelope} /> */}
-              <NavbarItem title={"Market"}/>
-              <NavbarItem title={"Exchange"}/>
-              <NavbarItem title={"Tutorials"}/>
-              <NavbarItem title={"Wallets"}/>
-          </ul>
+          
         </nav>
     );
 }
