@@ -7,7 +7,7 @@ const  App = () => {
           <Navbar/>
           <Home/>
       </div>
-      <h1 class="text-5x2 font-bold">
+      <h1 className="text-5x2 font-bold">
     Hello world!
   </h1>
       <Services/>
