@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import TransactionForm from './TransactionForm';
+import { TransactionContext } from '../context/TransactionContext';
 
 const Home = () => {
-
-
-
+    const { checkIfWalletIsConnected } = useContext(TransactionContext)
 
     return (
         <div className='home'>
