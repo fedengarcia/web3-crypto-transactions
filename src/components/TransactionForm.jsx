@@ -1,46 +1,34 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
+import { TransactionContext } from '../context/TransactionContext';
+
 
 const TransactionForm = () => {
-    const [address,setAddress] = useState('')
-    const [amount,setAmount] = useState('')
-    const [gif,setGif] = useState('')
-    const [message,setMessage] = useState('')
+    const {formData, sendTransaction, handleChangeForm} = useContext(TransactionContext); 
 
 
 
-    const handleInput = (type,e) => {
-        if(type === 'address') setAddress(e.target.value)
-        if(type === 'amount') setAmount(e.target.value)
-        if(type === 'message') setMessage(e.target.value)
-        if(type === 'gif') {
-            setGif(e.target.value)
-        }
+    const handleSubmit = (e) => {
+        console.log(formData)
+        const {address, amount, keyword, message} = formData;
+        e.preventDefault()
+
+        if(!address || !amount || !keyword || !message) return; 
+
+        sendTransaction()
     }
 
-
-    const sendTransaction = async (e) => {
-        e.preventDefault();
-
-        let item = {
-            address:address,
-            amount:amount,
-            gif:gif,
-            message:message
-        }
-        console.log(item)
-    }
 
     return (
         <form>
-            <input placeholder="Address To" onChange={(e) => handleInput('address',e)}/>
-            <input placeholder="Amount (ETH)" onChange={(e) => handleInput('amount',e)}/>
-            <input placeholder="Keyword (GIF)" onChange={(e) => handleInput('gif',e)}/>
-            <input placeholder="Enter message" onChange={(e) => handleInput('message',e)}/>   
+            <input placeholder="Address To" onChange={(e) => handleChangeForm(e,'address')}/>
+            <input placeholder="Amount (ETH)" type="number" onChange={(e) => handleChangeForm(e,'amount')}/>
+            <input placeholder="Keyword (GIF)" onChange={(e) => handleChangeForm(e,'keyword')}/>
+            <input placeholder="Enter message" onChange={(e) => handleChangeForm(e,'message')}/>   
 
             <button
                 type='button'
                 className='btn_transaction'
-                onClick={(e) =>  sendTransaction(e)}
+                onClick={handleSubmit}
             >
                 Send    
             </button> 
