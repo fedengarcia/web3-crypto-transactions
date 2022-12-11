@@ -8,11 +8,10 @@ const TransactionForm = () => {
 
 
     const handleSubmit = (e) => {
-        console.log(formData)
-        const {address, amount, keyword, message} = formData;
+        const {addressTo, amount, keyword, message} = formData;
         e.preventDefault()
 
-        if(!address || !amount || !keyword || !message) return; 
+        if(!addressTo || !amount || !keyword || !message) return; 
 
         sendTransaction()
     }
@@ -20,7 +19,7 @@ const TransactionForm = () => {
 
     return (
         <form>
-            <input placeholder="Address To" onChange={(e) => handleChangeForm(e,'address')}/>
+            <input placeholder="Address To" onChange={(e) => handleChangeForm(e,'addressTo')}/>
             <input placeholder="Amount (ETH)" type="number" onChange={(e) => handleChangeForm(e,'amount')}/>
             <input placeholder="Keyword (GIF)" onChange={(e) => handleChangeForm(e,'keyword')}/>
             <input placeholder="Enter message" onChange={(e) => handleChangeForm(e,'message')}/>   
