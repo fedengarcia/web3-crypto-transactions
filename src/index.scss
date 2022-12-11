@@ -153,3 +153,33 @@ body {
   }
 
 }
+
+
+
+.service-section{
+  height: auto;
+  background-color: rgb(56, 18, 78);
+  color: white;
+  display: flex;
+  align-items: center;
+
+    h1{
+      margin: 1em;
+      font-size: 40px;
+    }
+
+    div{
+      margin: 1em;
+
+
+      .service-card{
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        padding: 1em;
+        border: 1px solid rgba(156, 156, 156, 0.112);
+        border-radius: 2em;
+        background-color: rgba(0, 0, 0, 0.185);
+      }
+    }
+}
