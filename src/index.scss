@@ -8,15 +8,15 @@ body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.gradient-bg-home{
-    height: 100vh;
-    background-color: rgb(56, 18, 78);
+  background-color: rgb(56, 18, 78);
     background-image: 
         /* radial-gradient(at 0% 0%, rgb(196, 99, 99), transparent 50%), */
         radial-gradient(at 40% 40%, rgb(181, 62, 62), transparent 80%),
         radial-gradient(at 50% 50%, rgb(46, 46, 135), transparent 70%);
+}
+
+.gradient-bg-home{
+    height: 100vh;
 }
 
 .banner{
@@ -158,7 +158,7 @@ body {
 
 .service-section{
   height: auto;
-  background-color: rgb(56, 18, 78);
+  // background-color: rgb(56, 18, 78);
   color: white;
   display: flex;
   align-items: center;
@@ -182,4 +182,22 @@ body {
         background-color: rgba(0, 0, 0, 0.185);
       }
     }
+}
+
+
+.transactions-section{
+  color: white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    font-size: 45px;
+  }
+
+  .transactions-container { 
+    
+  }
 }
