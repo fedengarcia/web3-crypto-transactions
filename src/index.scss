@@ -193,11 +193,25 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom:  4em;
   h1{
     font-size: 45px;
   }
 
   .transactions-container { 
-    
+    margin-top: 1em;
+    .transaction-card{
+      background-color: rgb(85, 39, 120);
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 2em;
+
+      a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
   }
 }
