@@ -6,18 +6,16 @@ import useFetch from '../hooks/useFetch';
 const TransactionCard = ({shortenAddres, addressTo, addressFrom, timestamp, message, keyword, amount}) => {
     const gifUrl = useFetch({keyword})
 
-
-
-
     return (
         <div className='transaction-card'>
             <a href={`https://ropsten.etherscan.io/address/${addressFrom}`} target='_blank' rel='noopener noreferrer'>
-                <p>From: {shortenAddres(addressFrom)}</p>
+                From: {shortenAddres(addressFrom)}
             </a>
             <a href={`https://ropsten.etherscan.io/address/${addressTo}`} target='_blank' rel='noopener noreferrer'>
-                <p>To: {shortenAddres(addressTo)}</p>
+            To: {shortenAddres(addressTo)}
             </a>
             <p className='amount'>Amount: {amount} ETH</p>
+
             {
                 message && 
                 <>
@@ -37,22 +35,9 @@ const TransactionCard = ({shortenAddres, addressTo, addressFrom, timestamp, mess
 }
 
 const Transactions = () => {
-    const {currentAccount, shortenAddres} = useContext(TransactionContext);
-    const [transactions, setTransactions] = useState([])
+    const {currentAccount, shortenAddres, transactions} = useContext(TransactionContext);
+    // const [transactions, setTransactions] = useState([])
 
-
-    useEffect(() => {
-        setTransactions([
-            {
-
-            }
-        ])
-    }, []);
-
-
-
-
-    console.log(currentAccount)
     return (
         <div className='transactions-section'>
                <h1>Latest transactions</h1>
@@ -61,7 +46,18 @@ const Transactions = () => {
                     <>
                         <p>Address: {shortenAddres()}</p>
                         <div className='transactions-container'>
-
+                        {transactions && transactions.map((transaction, i) => 
+                            <TransactionCard
+                                key={i}
+                                addressFrom={transaction.sender}
+                                addressTo={transaction.receiver}
+                                message={transaction.message}
+                                timestamp={new Date(transaction.timestamp.toNumber * 1000).toLocaleDateString()}
+                                keyword={transaction.keyword}
+                                shortenAddres={shortenAddres}
+                                amount={parseInt(transaction.amount._hex) / (10 ** 18)}
+                            />
+                        )}
                 
                         </div>
                     </>

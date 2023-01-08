@@ -31,6 +31,8 @@ export const TransactionProvider = ({children}) => {
     })
     const [isLoading, setIsLoading] = useState(false);
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount') ?? 0)
+    const [transactions,setTransactions] = useState([])
+
 
     const handleChangeForm = (e, type) => {
         setFormData(
@@ -49,7 +51,10 @@ export const TransactionProvider = ({children}) => {
 
             const accounts = await ethereum.request({method:'eth_accounts'})
 
-            if(accounts.length) setCurrentAccount(accounts[0]);
+            if(accounts.length){
+                setCurrentAccount(accounts[0]);
+                getAllTransactions();
+            } 
 
             // / getAllTransactions()
         } catch (error) {
@@ -69,6 +74,17 @@ export const TransactionProvider = ({children}) => {
         }  catch (error) {
             console.log(error)
             throw new Error("No ethereum object");
+        }
+    }
+
+    const getAllTransactions = async () => {
+        try {
+            if(!ethereum) return alert("Please install metamask")
+            const transactionContract = getEthereumContract();
+            const availableTransactions =  await transactionContract.getAllTransactions();
+            setTransactions(availableTransactions)
+        } catch (error) {
+            console.log("Error: ", error)
         }
     }
 
@@ -128,7 +144,8 @@ export const TransactionProvider = ({children}) => {
                 handleChangeForm,
                 sendTransaction,
                 formData,
-                shortenAddres
+                shortenAddres,
+                transactions
             }}>
             {children}
         </TransactionContext.Provider>
