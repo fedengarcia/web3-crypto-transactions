@@ -103,6 +103,9 @@ export const TransactionProvider = ({children}) => {
         }
     }
 
+
+    const shortenAddres = () => typeof currentAccount === 'string' && `${currentAccount.slice(0,5)}...${currentAccount.slice(currentAccount.length - 4)}`
+
     return (
         <TransactionContext.Provider 
             value={{
@@ -111,7 +114,8 @@ export const TransactionProvider = ({children}) => {
                 currentAccount,
                 handleChangeForm,
                 sendTransaction,
-                formData
+                formData,
+                shortenAddres
             }}>
             {children}
         </TransactionContext.Provider>
