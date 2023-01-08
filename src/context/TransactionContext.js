@@ -40,6 +40,7 @@ export const TransactionProvider = ({children}) => {
 
     useEffect(() => {
         checkIfWalletIsConnected()
+        checkIfTransactionsExists()
     }, []);
 
     const checkIfWalletIsConnected = async () => {
@@ -59,6 +60,17 @@ export const TransactionProvider = ({children}) => {
 
     }
 
+    const checkIfTransactionsExists =  async () => {
+        try {
+            const transactionContract = getEthereumContract();
+            const transactionCount = await transactionContract.getTransactionCount();
+
+            window.localStorage.setItem("transactionCount",transactionCount )
+        }  catch (error) {
+            console.log(error)
+            throw new Error("No ethereum object");
+        }
+    }
 
     const connectWallet = async() => {
         try {
@@ -110,6 +122,7 @@ export const TransactionProvider = ({children}) => {
         <TransactionContext.Provider 
             value={{
                 checkIfWalletIsConnected,
+                checkIfTransactionsExists,
                 connectWallet,
                 currentAccount,
                 handleChangeForm,
