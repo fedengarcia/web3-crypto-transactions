@@ -12,7 +12,7 @@ const Home = () => {
             <div className='home-aside home-left-container'>
                 <h1>Send Crypto across the world</h1>
                 <p>Explore the crypto world. Buy and sell cryptocurrencies easily on Kripto</p>
-                {!currentAccount && <button 
+                {currentAccount && <button 
                     className='wallet_btn'
                     onClick={() => connectWallet()}    
                 >Connect Wallet</button>}
