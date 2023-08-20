@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 import logo from '../img/logo192.png'
+import { TransactionContext } from '../context/TransactionContext';
 
 const NavbarItem = ({title, classProps}) => {
 
@@ -12,13 +13,12 @@ const NavbarItem = ({title, classProps}) => {
 }
 
 
-
 const Navbar = () => {
-    
+  const { connectWallet } = useContext(TransactionContext)
+
     return (
         <nav className='navbar'>
-          <div className="banner">
-            <img  src={logo} alt="logo" className='w-32 cursor-pointer'/>
+            <h1>CRYPTO TRANSACTIONS</h1>
 
             <ul className='navbar_list'>
             {/* <FontAwesomeIcon size='x1' icon={faEnvelope} /> */}
@@ -26,11 +26,13 @@ const Navbar = () => {
                 <NavbarItem title={"Exchange"}/>
                 <NavbarItem title={"Tutorials"}/>
                 <NavbarItem title={"Wallets"}/>
+                <button 
+                  onClick={() => connectWallet()}
+                  className='login_btn'
+                >
+                  Login
+                </button>
             </ul>
-            <button className='login_btn'>
-                Login
-            </button>
-          </div>
           
         </nav>
     );
